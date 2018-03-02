@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "anguyen",
@@ -11,5 +12,9 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.2"
-  }
+    },
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/DanteNguyen1008/catchatbot.git"
+    },
 }
