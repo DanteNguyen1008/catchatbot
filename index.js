@@ -8,11 +8,7 @@ const
 
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
-// sets server port and logs message on success
-app.listen(port, ip)
-console.log('webhook Server running on http://%s:%s', ip, port);
 
-/*
 // Creates the endpoint for out webhook
 app.post('/webhook', (req, res) => {
     let body = req.body;
@@ -60,4 +56,7 @@ app.get('/webhook', (req, res) => {
         res.sendStatus(404);
     }
 })
-*/
+
+// sets server port and logs message on success
+app.listen(port, ip)
+console.log('webhook Server running on http://%s:%s', ip, port);
