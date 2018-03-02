@@ -6,9 +6,13 @@ const
     bodyParser = require('body-parser'),
     app = express().use(bodyParser.json()); // creates express http server
 
+var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 // sets server port and logs message on success
-app.listen(process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080, process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0', () => console.log('webhook is listening'))
+app.listen(port, ip)
+console.log('webhook Server running on http://%s:%s', ip, port);
 
+/*
 // Creates the endpoint for out webhook
 app.post('/webhook', (req, res) => {
     let body = req.body;
@@ -56,3 +60,4 @@ app.get('/webhook', (req, res) => {
         res.sendStatus(404);
     }
 })
+*/
