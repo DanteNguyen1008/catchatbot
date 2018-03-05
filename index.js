@@ -9,6 +9,8 @@ const
 var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
     ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
 
+var PAGE_ACCESS_TOKEN = 'EAADJVroCoEoBAGTxwgqcY29Nx9RoZCPfjeZCcf6lX0AcxQ7NANLHghVhmdw73J1cnMYdYEGfnyeZCFzCRZCQUDaYLsJBkuZAR7V4yQopRhIkVfDADL1L0o7Co3ZChLqWqnx5ZCWPA4VQpz5JgtbgTLkntTzjlAxhP1k2nrPckLk5gZDZD'
+
 // Creates the endpoint for out webhook
 app.post('/webhook', (req, res) => {
     let body = req.body;
@@ -20,6 +22,10 @@ app.post('/webhook', (req, res) => {
             // Gets the message. entry.messaging is an array, but will only ever contain on message so we get index = 0
             let webhook_event = entry.messaging[0];
             console.log(webhook_event);
+
+            // Gets sender PSID
+            let sender_psid = webhook_event.sender.id;
+            console.log('Sender PSID: ' + sender_psid)
         });
 
         // Returns a 200 OK response to all requests
@@ -60,3 +66,19 @@ app.get('/webhook', (req, res) => {
 // sets server port and logs message on success
 app.listen(port, ip)
 console.log('webhook Server running on http://%s:%s', ip, port);
+
+// functions
+// Handles message events
+function handleMessage(sender_psid, received_message) {
+
+}
+
+// Handle messaging_postback events
+function handlePostback(sender_psid, received_postback) {
+
+}
+
+// Send response message via the sende API
+function callSendAPI(sender_psid, response) {
+
+}
