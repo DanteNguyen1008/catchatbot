@@ -15,6 +15,8 @@ var PAGE_ACCESS_TOKEN = 'EAADJVroCoEoBAGTxwgqcY29Nx9RoZCPfjeZCcf6lX0AcxQ7NANLHgh
 app.post('/webhook', (req, res) => {
     let body = req.body;
 
+    console.log("Received post");
+
     // Checks this is an event from a page subscription
     if (body.object == 'page') {
         // Interate over each entry - there maybe multiple if batched
