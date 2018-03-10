@@ -6,8 +6,8 @@ const
     bodyParser = require('body-parser'),
     app = express().use(bodyParser.json()); // creates express http server
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+var port = process.env.PORT || 8080,
+    ip   = process.env.IP || '0.0.0.0';
 
 var PAGE_ACCESS_TOKEN = 'EAADJVroCoEoBAGTxwgqcY29Nx9RoZCPfjeZCcf6lX0AcxQ7NANLHghVhmdw73J1cnMYdYEGfnyeZCFzCRZCQUDaYLsJBkuZAR7V4yQopRhIkVfDADL1L0o7Co3ZChLqWqnx5ZCWPA4VQpz5JgtbgTLkntTzjlAxhP1k2nrPckLk5gZDZD'
 
