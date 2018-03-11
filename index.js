@@ -4,7 +4,11 @@
 const
     express = require('express'),
     bodyParser = require('body-parser'),
-    app = express().use(bodyParser.json()); // creates express http server
+    app = express().use(bodyParser.json()),
+    ip = require('ip'); // creates express http server
+
+var port = process.env.PORT || 49652,
+    _ip   = ip.address();
 
 var PAGE_ACCESS_TOKEN = 'EAADJVroCoEoBAGTxwgqcY29Nx9RoZCPfjeZCcf6lX0AcxQ7NANLHghVhmdw73J1cnMYdYEGfnyeZCFzCRZCQUDaYLsJBkuZAR7V4yQopRhIkVfDADL1L0o7Co3ZChLqWqnx5ZCWPA4VQpz5JgtbgTLkntTzjlAxhP1k2nrPckLk5gZDZD'
 
@@ -63,9 +67,8 @@ app.get('/webhook', (req, res) => {
 })
 
 // sets server port and logs message on success
-app.listen(49652)
-var ip = require('ip');
-console.log('webhook Server running on http://%s:%s', ip.address(), 49652);
+app.listen(port, _ip)
+console.log('webhook Server running on http://%s:%s', _ip, port);
 
 // functions
 // Handles message events
