@@ -64,7 +64,8 @@ app.get('/webhook', (req, res) => {
 
 // sets server port and logs message on success
 app.listen(49652)
-console.log('webhook Server running on http://%s:%s', ip, port);
+var ip = require('ip');
+console.log('webhook Server running on http://%s:%s', ip.address(), 49652);
 
 // functions
 // Handles message events
